@@ -1,0 +1,30 @@
+{% extends 'luna/layout.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for Usuario in usuarios %}
+      <tr>
+        <th scope="row">{{Usuario.id}}</th>
+        <td>{{Usuario}}</td>
+        <td>
+            <a class="btn btn-danger btn-sm" href="{% url 'eliminar' Usuario.id %}">Eliminar</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'editar' Usuario.id %}">Editar</a>
+        </td>
+      </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}
